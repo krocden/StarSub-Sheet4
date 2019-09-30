@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Receipt";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<body class="bg-danger">
+    <h1 class="text-center">StarSubs Receipt</h1>
+    <h2 class="text-center">@ViewData["date"]</h2>
+    <br />
+    <div class="container">
+        <div class="row text-center">
+            <div class="col col-xs-6">
+                Type of Sub:<br />
+                Size of Sub:<br />
+                Type of Meal Deal:<br />
+                Total Price of Sub:<br />
+                Price of Meal Deal:<br />
+            </div>
+            <div class="col col-xs-6">
+                @ViewData["subName"]<br />
+                @ViewData["subSize"]<br />
+                @ViewData["subDeal"]<br />
+                @ViewData["UnitPrice"]<br />
+                @ViewData["dealPrice"]<br />
+            </div>
+        </div>
+        <br />
+        <div class="row text-center">
+            <div class="col col-xs-6">
+                Cost:<br />
+                Tax:<br />
+                Total Due:<br />
+            </div>
+            <div class="col col-xs-6">
+                @ViewData["preTaxPrice"]<br />
+                @ViewData["tax"]<br />
+                @ViewData["totalPrice"]<br />
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="text-center">
+        @Html.ActionLink("Place another order", "Index", "Home")
+    </div>
+
+
+</body>

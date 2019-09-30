@@ -1,0 +1,42 @@
+﻿@model StarSub_Sheet4.Models.sub
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<body class="bg-danger">
+    <h1 class="text-center">Welcome to StarSubs!</h1>
+    <div class="text-center">
+        <img src="/starsub.png" />
+    </div>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div class="container">
+            <br />
+            <div class="row text-center">
+                <div class="col col-xs-6">
+                    <p>Select a Sandwich</p>
+                    @Html.ListBoxFor(m => m.SubName, new SelectList(Enum.GetValues(typeof(StarSub_Sheet4.Models.SubName))))
+                </div>
+                <div class="col col-xs-6">
+                    <p>Select a Size</p>
+                    @Html.ListBoxFor(m => m.SubSize, new SelectList(Enum.GetValues(typeof(StarSub_Sheet4.Models.SubSize))))
+                </div>
+            </div>
+            <div class="row text-center">
+                <br />
+                <p>Select a Meal Deal</p>
+                @Html.RadioButtonFor(m => m.Meal, StarSub_Sheet4.Models.Meal.None, new { Checked = "checked" }) None
+                @Html.RadioButtonFor(m => m.Meal, StarSub_Sheet4.Models.Meal.DrinkChips) Drinks and Chips
+                @Html.RadioButtonFor(m => m.Meal, StarSub_Sheet4.Models.Meal.DrinkCookies) Drink and Cookies
+            </div>
+            <div class="text-center">
+                <br />
+                <input type="submit" name="submit" value="Place Order" />
+            </div>
+        </div>
+    }
+
+</body>
