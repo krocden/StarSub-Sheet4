@@ -32,5 +32,6 @@ namespace StarSub_Sheet4.Models
         public SubName SubName { get; set; }
         public SubSize SubSize { get; set; }
         public Meal Meal { get; set; }
+        public int Quantity { get; set; }
     }
 }

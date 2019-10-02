@@ -1,0 +1,53 @@
+﻿@model StarSub_Sheet4.Models.sub
+
+@{
+    ViewBag.Title = "Full";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<body class="bg-info">
+    <br />
+    <div class="text-center">
+        <h1>StarSubs!</h1>
+        <img src="/starsub.png" />
+    </div>
+    <br />
+    <table class="table">
+        <tr>
+            <th>Sub Name</th>
+            <th>Sub Size</th>
+            <th>Meal Deal</th>
+            <th>Quantity</th>
+        </tr>
+        @{
+    // Taking session data.
+    List<StarSub_Sheet4.Models.sub> sandwich = (List<StarSub_Sheet4.Models.sub>)Session["Orders"];
+    //double tax = (double)Session["tax"];
+    //double income = (double)Session["income"];
+    String taxS= Convert.ToDecimal((double)Session["tax"]).ToString("C");
+    String incomeS= Convert.ToDecimal((double)Session["income"]).ToString("C");
+
+    foreach (var m in sandwich)
+    {
+            <tr>
+            @{
+                <td>@m.SubName</td>
+                <td>@m.SubSize</td>
+                <td>@m.Meal</td>
+                <td>@m.Quantity</td>
+            }
+            </tr>
+    }
+        }
+    </table>
+
+    <div class="text-center">
+        Total Tax: @taxS <br />
+        Total Income: @incomeS<br /><br />
+        @Html.ActionLink("Return to Home", "Index", "Home")
+    </div>
+</body>
+
+@{ 
+    // A List view could have been better instead of an empty view.
+}

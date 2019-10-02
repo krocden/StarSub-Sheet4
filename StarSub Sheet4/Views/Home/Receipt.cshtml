@@ -5,7 +5,7 @@
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<body class="bg-danger">
+<body class="bg-info">
     <h1 class="text-center">StarSubs Receipt</h1>
     <h2 class="text-center">@ViewData["date"]</h2>
     <br />
@@ -17,6 +17,8 @@
                 Type of Meal Deal:<br />
                 Total Price of Sub:<br />
                 Price of Meal Deal:<br />
+                Full Meal Price:<br />
+                Quantity:<br />
             </div>
             <div class="col col-xs-6">
                 @ViewData["subName"]<br />
@@ -24,6 +26,8 @@
                 @ViewData["subDeal"]<br />
                 @ViewData["UnitPrice"]<br />
                 @ViewData["dealPrice"]<br />
+                @ViewData["fullMealPrice"]<br />
+                @ViewData["quantity"]<br />
             </div>
         </div>
         <br />

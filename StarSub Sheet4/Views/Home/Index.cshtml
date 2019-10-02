@@ -6,7 +6,7 @@
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 
-<body class="bg-danger">
+<body class="bg-info">
     <h1 class="text-center">Welcome to StarSubs!</h1>
     <div class="text-center">
         <img src="/starsub.png" />
@@ -34,7 +34,17 @@
             </div>
             <div class="text-center">
                 <br />
+                Quantity: @Html.TextBoxFor(m => m.Quantity)
+                <br /><br />
                 <input type="submit" name="submit" value="Place Order" />
+                <br />
+                <br />
+               
+                @if (Session["Orders"] != null)
+                {
+                    // Appears only if there is an order.
+                    @Html.ActionLink("See all orders", "Full", "Home")
+                }
             </div>
         </div>
     }
